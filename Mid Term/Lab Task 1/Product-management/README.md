@@ -3,7 +3,6 @@
 This is my Lab Task 1 for Advanced Web Technologies. It is a NestJS project with
 CRUD for products and employees. Data is saved in a PostgreSQL database with TypeORM.
 
-## Student Details
 
 ## Student Details
 
