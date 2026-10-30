@@ -1,11 +1,4 @@
-import {
-  IsEmail,
-  IsInt,
-  IsNotEmpty,
-  IsOptional,
-  IsString,
-  Min,
-} from "class-validator";
+import { IsInt, IsNotEmpty, IsOptional, IsString } from "class-validator";
 
 // Data needed to create an employee (all fields are required)
 export class CreateEmployeeDto {
@@ -13,7 +6,8 @@ export class CreateEmployeeDto {
   @IsString()
   name!: string;
 
-  @IsEmail({}, { message: "Email must be a valid email address" })
+  @IsNotEmpty({ message: "Email is a mandatory field" })
+  @IsString()
   email!: string;
 
   @IsNotEmpty({ message: "Phone is a mandatory field" })
@@ -25,11 +19,9 @@ export class CreateEmployeeDto {
   password!: string;
 
   @IsInt()
-  @Min(0)
   age!: number;
 
   @IsInt()
-  @Min(0)
   yearsOfWorking!: number;
 }
 
@@ -40,7 +32,7 @@ export class UpdateEmployeeDto {
   name?: string;
 
   @IsOptional()
-  @IsEmail({}, { message: "Email must be a valid email address" })
+  @IsString()
   email?: string;
 
   @IsOptional()
@@ -53,11 +45,9 @@ export class UpdateEmployeeDto {
 
   @IsOptional()
   @IsInt()
-  @Min(0)
   age?: number;
 
   @IsOptional()
   @IsInt()
-  @Min(0)
   yearsOfWorking?: number;
 }
