@@ -1,4 +1,4 @@
-import { IsInt, IsNotEmpty, IsNumber, IsOptional, IsString, Min } from "class-validator";
+import { IsInt, IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
 
 // Data needed to create a product (all fields are required)
 export class CreateProductDto {
@@ -11,11 +11,9 @@ export class CreateProductDto {
   category!: string;
 
   @IsNumber()
-  @Min(0)
   price!: number;
 
   @IsInt()
-  @Min(0)
   quantity!: number;
 }
 
@@ -31,11 +29,9 @@ export class UpdateProductDto {
 
   @IsOptional()
   @IsNumber()
-  @Min(0)
   price?: number;
 
   @IsOptional()
   @IsInt()
-  @Min(0)
   quantity?: number;
 }
