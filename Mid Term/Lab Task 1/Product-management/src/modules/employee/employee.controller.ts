@@ -7,7 +7,7 @@ import {
   Param,
   Delete,
   ValidationPipe,
-  ParseUUIDPipe,
+  
 } from "@nestjs/common";
 import { EmployeeService } from "./employee.service";
 import { CreateEmployeeDto, UpdateEmployeeDto } from "./dto/employee.dto";
@@ -31,14 +31,14 @@ export class EmployeeController {
 
   // GET /employees/:id
   @Get(":id")
-  async getEmployeeById(@Param("id", ParseUUIDPipe) id: string) {
+  async getEmployeeById(@Param("id") id: string) {
     return await this.employeeService.getEmployeeById(id);
   }
 
   // PATCH /employees/:id
   @Patch(":id")
   async updateEmployee(
-    @Param("id", ParseUUIDPipe) id: string,
+    @Param("id") id: string,
     @Body(ValidationPipe) dto: UpdateEmployeeDto,
   ) {
     return await this.employeeService.updateEmployee(id, dto);
@@ -46,7 +46,7 @@ export class EmployeeController {
 
   // DELETE /employees/:id
   @Delete(":id")
-  async deleteEmployee(@Param("id", ParseUUIDPipe) id: string) {
+  async deleteEmployee(@Param("id") id: string) {
     return await this.employeeService.deleteEmployee(id);
   }
 }
