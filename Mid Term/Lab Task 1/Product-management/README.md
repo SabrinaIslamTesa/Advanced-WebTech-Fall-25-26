@@ -5,9 +5,13 @@ CRUD for products and employees. Data is saved in a PostgreSQL database with Typ
 
 ## Student Details
 
-| SL | Name | ID | Section |
-| -- | ---- | -- | ------- |
-| YOUR_SL | Sabrina Islam Tesa | 23-53821-3 | B |
+## Student Details
+
+**Name:** Sabrina Islam Tesa
+
+**ID:** 23-53821-3
+
+**Section:** B
 
 ## Database Setup
 
