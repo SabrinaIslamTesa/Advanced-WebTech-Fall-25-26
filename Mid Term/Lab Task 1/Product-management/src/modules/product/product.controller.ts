@@ -7,7 +7,7 @@ import {
   Param,
   Delete,
   ValidationPipe,
-  ParseUUIDPipe,
+
 } from "@nestjs/common";
 import { ProductService } from "./product.service";
 import { CreateProductDto, UpdateProductDto } from "./dto/product.dto";
@@ -31,14 +31,14 @@ export class ProductController {
 
   // GET /products/:id
   @Get(":id")
-  async getProductById(@Param("id", ParseUUIDPipe) id: string) {
+  async getProductById(@Param("id") id: string) {
     return await this.productService.getProductById(id);
   }
 
   // PATCH /products/:id
   @Patch(":id")
   async updateProduct(
-    @Param("id", ParseUUIDPipe) id: string,
+    @Param("id") id: string,
     @Body(ValidationPipe) dto: UpdateProductDto,
   ) {
     return await this.productService.updateProduct(id, dto);
@@ -46,7 +46,7 @@ export class ProductController {
 
   // DELETE /products/:id
   @Delete(":id")
-  async deleteProduct(@Param("id", ParseUUIDPipe) id: string) {
+  async deleteProduct(@Param("id") id: string) {
     return await this.productService.deleteProduct(id);
   }
 }
